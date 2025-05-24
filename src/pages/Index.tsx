@@ -4,7 +4,10 @@ import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 
 const Index = () => {
+  const [scrollY, setScrollY] = useState(0);
   const [visibleItems, setVisibleItems] = useState(0);
+  const [showList, setShowList] = useState(false);
+  
   const items = [
     "product designer",
     "software developer", 
@@ -16,6 +19,23 @@ const Index = () => {
   ];
 
   useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrollY(currentScrollY);
+      
+      // Show the list when user scrolls down 100px
+      if (currentScrollY > 100 && !showList) {
+        setShowList(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [showList]);
+
+  useEffect(() => {
+    if (!showList) return;
+    
     const timer = setInterval(() => {
       setVisibleItems(prev => {
         if (prev < items.length) {
@@ -26,7 +46,9 @@ const Index = () => {
     }, 800);
 
     return () => clearInterval(timer);
-  }, [items.length]);
+  }, [showList, items.length]);
+
+  const translateY = Math.min(scrollY * 0.5, 200);
 
   return (
     <Layout>
@@ -38,7 +60,14 @@ const Index = () => {
         <div className="relative z-10">
           {/* Main Content */}
           <div className="min-h-screen flex items-center justify-start">
-            <div className="absolute left-8 md:left-16 top-1/2 transform -translate-y-1/2">
+            <div 
+              className="absolute left-8 md:left-16"
+              style={{
+                top: showList ? `calc(50% - ${translateY}px)` : '50%',
+                transform: 'translateY(-50%)',
+                transition: 'top 0.3s ease-out'
+              }}
+            >
               <div className="space-y-4">
                 <h1 className="font-hanson text-6xl md:text-8xl lg:text-9xl font-bold text-white leading-none tracking-wider">
                   ALLEN
@@ -51,26 +80,28 @@ const Index = () => {
                 </p>
                 
                 {/* Dynamic Text Animation */}
-                <div className="mt-12 space-y-2">
-                  <p className="font-hanson text-lg md:text-xl text-white/90 tracking-wide">
-                    I'm allen i am a:
-                  </p>
-                  <div className="space-y-1">
-                    {items.slice(0, visibleItems).map((item, index) => (
-                      <p 
-                        key={index}
-                        className="font-hanson text-lg md:text-xl text-white/90 tracking-wide animate-fade-in"
-                        style={{
-                          animationDelay: `${index * 0.8}s`,
-                          animationFillMode: 'both'
-                        }}
-                      >
-                        {item}
-                        {index < items.length - 1 && ","}
-                      </p>
-                    ))}
+                {showList && (
+                  <div className="mt-12 space-y-2">
+                    <p className="font-hanson text-lg md:text-xl text-white/90 tracking-wide animate-fade-in">
+                      I'm allen i am a:
+                    </p>
+                    <div className="flex flex-wrap items-center gap-x-2">
+                      {items.slice(0, visibleItems).map((item, index) => (
+                        <span
+                          key={index}
+                          className="font-hanson text-lg md:text-xl text-white/90 tracking-wide animate-fade-in"
+                          style={{
+                            animationDelay: `${(index + 1) * 0.8}s`,
+                            animationFillMode: 'both'
+                          }}
+                        >
+                          {item}
+                          {index < items.length - 1 && index < visibleItems - 1 && ","}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>
