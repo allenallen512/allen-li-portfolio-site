@@ -1,17 +1,76 @@
 
 import Layout from "../components/Layout";
+import { Download } from "lucide-react";
 
 const About = () => {
+  const professionalEvents = [
+    {
+      year: "2023",
+      title: "Senior Creative Director",
+      company: "Design Studio Inc.",
+      description: "Leading creative vision and strategy for major client projects"
+    },
+    {
+      year: "2021",
+      title: "Creative Director",
+      company: "Brand Agency Co.",
+      description: "Managed creative team and developed brand identities for Fortune 500 clients"
+    },
+    {
+      year: "2019",
+      title: "Senior Designer",
+      company: "Digital Solutions Ltd.",
+      description: "Specialized in digital design and user experience for web applications"
+    },
+    {
+      year: "2017",
+      title: "Graphic Designer",
+      company: "Creative House",
+      description: "Created visual content for print and digital media campaigns"
+    }
+  ];
+
+  const personalEvents = [
+    {
+      year: "2023",
+      title: "Moved to Austin",
+      description: "Relocated to Austin, Texas to embrace the vibrant creative scene"
+    },
+    {
+      year: "2022",
+      title: "Photography Exhibition",
+      description: "First solo photography exhibition showcasing urban landscapes"
+    },
+    {
+      year: "2020",
+      title: "Started Design Blog",
+      description: "Launched personal blog about design trends and creative processes"
+    },
+    {
+      year: "2018",
+      title: "Design Mentorship",
+      description: "Began mentoring junior designers and students"
+    }
+  ];
+
   return (
     <Layout>
       <div className="min-h-screen bg-white text-gray-900">
-        <div className="container mx-auto px-8 py-20">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="font-hanson text-5xl md:text-6xl font-bold mb-12 text-center">
-              About
-            </h1>
-            
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="container mx-auto px-8 py-12">
+          <div className="max-w-6xl mx-auto">
+            {/* Header with Resume Download */}
+            <div className="text-center mb-16">
+              <h1 className="font-hanson text-5xl md:text-6xl font-bold mb-8">
+                About
+              </h1>
+              <button className="inline-flex items-center gap-2 bg-gray-900 text-white font-hanson font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300">
+                <Download size={20} />
+                Download Resume
+              </button>
+            </div>
+
+            {/* Bio Section */}
+            <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
               <div className="space-y-6">
                 <h2 className="font-hanson text-3xl font-bold">
                   Creative Professional
@@ -25,23 +84,78 @@ const About = () => {
                 <p className="text-lg leading-relaxed text-gray-700">
                   With a keen eye for detail and a commitment to excellence, 
                   I collaborate with clients and teams to deliver projects that 
-                  not only meet objectives but exceed expectations. Every project 
-                  is an opportunity to explore new possibilities and create 
-                  something truly unique.
+                  not only meet objectives but exceed expectations.
                 </p>
-                <div className="pt-4">
-                  <h3 className="font-hanson text-xl font-bold mb-3">Expertise</h3>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>• Creative Direction</li>
-                    <li>• Digital Design</li>
-                    <li>• Brand Strategy</li>
-                    <li>• Visual Storytelling</li>
-                  </ul>
-                </div>
               </div>
               
               <div className="bg-gray-100 aspect-square rounded-lg flex items-center justify-center">
                 <p className="text-gray-500 font-hanson">Photo Coming Soon</p>
+              </div>
+            </div>
+
+            {/* Timeline Section */}
+            <div className="relative">
+              <h2 className="font-hanson text-4xl font-bold text-center mb-16">Timeline</h2>
+              
+              {/* Timeline Container */}
+              <div className="relative">
+                {/* Center Line */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gray-300 h-full"></div>
+                
+                {/* Timeline Items */}
+                <div className="space-y-12">
+                  {Math.max(professionalEvents.length, personalEvents.length) > 0 && 
+                    Array.from({ length: Math.max(professionalEvents.length, personalEvents.length) }).map((_, index) => (
+                      <div key={index} className="relative grid grid-cols-2 gap-8 items-center">
+                        {/* Professional Side (Left) */}
+                        <div className="text-right pr-8">
+                          {professionalEvents[index] && (
+                            <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-gray-900">
+                              <div className="font-hanson text-sm font-bold text-gray-500 mb-2">
+                                PROFESSIONAL
+                              </div>
+                              <div className="font-hanson text-lg font-bold text-gray-900 mb-2">
+                                {professionalEvents[index].year}
+                              </div>
+                              <h3 className="font-hanson text-xl font-bold mb-1">
+                                {professionalEvents[index].title}
+                              </h3>
+                              <p className="text-gray-600 font-medium mb-2">
+                                {professionalEvents[index].company}
+                              </p>
+                              <p className="text-gray-700 text-sm">
+                                {professionalEvents[index].description}
+                              </p>
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Center Dot */}
+                        <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gray-900 rounded-full border-4 border-white shadow-lg z-10"></div>
+
+                        {/* Personal Side (Right) */}
+                        <div className="text-left pl-8">
+                          {personalEvents[index] && (
+                            <div className="bg-white p-6 rounded-lg shadow-lg border-r-4 border-gray-600">
+                              <div className="font-hanson text-sm font-bold text-gray-500 mb-2">
+                                PERSONAL
+                              </div>
+                              <div className="font-hanson text-lg font-bold text-gray-900 mb-2">
+                                {personalEvents[index].year}
+                              </div>
+                              <h3 className="font-hanson text-xl font-bold mb-2">
+                                {personalEvents[index].title}
+                              </h3>
+                              <p className="text-gray-700 text-sm">
+                                {personalEvents[index].description}
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
               </div>
             </div>
           </div>

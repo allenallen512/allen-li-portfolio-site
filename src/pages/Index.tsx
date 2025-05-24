@@ -40,13 +40,6 @@ const Index = () => {
             <Linkedin size={24} />
           </a>
         </div>
-
-        {/* Brand Logo */}
-        <div className="fixed top-8 left-8">
-          <h2 className="font-hanson text-2xl font-bold text-white tracking-wide">
-            ali.
-          </h2>
-        </div>
       </div>
     </Layout>
   );

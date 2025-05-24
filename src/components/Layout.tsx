@@ -9,7 +9,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen relative">
       <Navigation />
-      <main>{children}</main>
+      <main className="pt-20">{children}</main>
     </div>
   );
 };

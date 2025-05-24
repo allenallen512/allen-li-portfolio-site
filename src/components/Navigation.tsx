@@ -11,23 +11,33 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 right-0 z-50 p-8">
-      <div className="flex space-x-8">
-        {navItems.map((item) => (
-          <Link
-            key={item.path}
-            to={item.path}
-            className={`font-hanson text-lg font-bold tracking-wide transition-all duration-300 hover:opacity-70 ${
-              location.pathname === item.path
-                ? "text-white"
-                : "text-white/80"
-            }`}
-          >
-            {item.name}
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200">
+      <div className="container mx-auto px-8">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <Link to="/" className="font-hanson text-2xl font-bold text-gray-900 tracking-wide">
+            ali.
           </Link>
-        ))}
+
+          {/* Navigation */}
+          <nav className="flex space-x-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`font-hanson text-lg font-bold tracking-wide transition-all duration-300 hover:opacity-70 ${
+                  location.pathname === item.path
+                    ? "text-gray-900"
+                    : "text-gray-600"
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+        </div>
       </div>
-    </nav>
+    </header>
   );
 };
 

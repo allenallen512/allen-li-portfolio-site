@@ -1,12 +1,50 @@
 
+import { useState } from "react";
 import Layout from "../components/Layout";
-import { Instagram, Linkedin } from "lucide-react";
+import { Instagram, Linkedin, Send } from "lucide-react";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Create mailto link with form data
+    const subject = encodeURIComponent(formData.subject || "Portfolio Contact");
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+    const mailtoLink = `mailto:hello@allenli.com?subject=${subject}&body=${body}`;
+    
+    // Open default email client
+    window.location.href = mailtoLink;
+    
+    // Reset form
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: ""
+    });
+  };
+
   return (
     <Layout>
       <div className="min-h-screen bg-white text-gray-900">
-        <div className="container mx-auto px-8 py-20">
+        <div className="container mx-auto px-8 py-12">
           <div className="max-w-4xl mx-auto">
             <h1 className="font-hanson text-5xl md:text-6xl font-bold mb-12 text-center">
               Contact
@@ -66,15 +104,18 @@ const Contact = () => {
               </div>
               
               <div className="bg-gray-50 p-8 rounded-lg">
-                <form className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block font-hanson text-sm font-bold mb-2">
-                      Name
+                      Name *
                     </label>
                     <input
                       type="text"
                       id="name"
                       name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all"
                       placeholder="Your name"
                     />
@@ -82,25 +123,46 @@ const Contact = () => {
                   
                   <div>
                     <label htmlFor="email" className="block font-hanson text-sm font-bold mb-2">
-                      Email
+                      Email *
                     </label>
                     <input
                       type="email"
                       id="email"
                       name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all"
                       placeholder="your@email.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="subject" className="block font-hanson text-sm font-bold mb-2">
+                      Subject
+                    </label>
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all"
+                      placeholder="Project inquiry"
                     />
                   </div>
                   
                   <div>
                     <label htmlFor="message" className="block font-hanson text-sm font-bold mb-2">
-                      Message
+                      Message *
                     </label>
                     <textarea
                       id="message"
                       name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
                       rows={5}
+                      required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all resize-none"
                       placeholder="Tell me about your project..."
                     />
@@ -108,8 +170,9 @@ const Contact = () => {
                   
                   <button
                     type="submit"
-                    className="w-full bg-gray-900 text-white font-hanson font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300"
+                    className="w-full bg-gray-900 text-white font-hanson font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300 flex items-center justify-center gap-2"
                   >
+                    <Send size={18} />
                     Send Message
                   </button>
                 </form>
