@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   const navItems = [
     { name: "Home", path: "/" },
@@ -16,7 +17,9 @@ const Navigation = () => {
       <div className="container mx-auto px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="font-hanson text-2xl font-bold text-white tracking-wide">
+          <Link to="/" className={`font-hanson text-2xl font-bold tracking-wide ${
+            isHomePage ? "text-white" : "text-gray-900"
+          }`}>
             ali.
           </Link>
 
@@ -27,9 +30,13 @@ const Navigation = () => {
                 key={item.path}
                 to={item.path}
                 className={`font-hanson text-lg font-bold tracking-wide transition-all duration-300 hover:opacity-70 ${
-                  location.pathname === item.path
-                    ? "text-white"
-                    : "text-white/80"
+                  isHomePage 
+                    ? location.pathname === item.path
+                      ? "text-white"
+                      : "text-white/80"
+                    : location.pathname === item.path
+                      ? "text-gray-900"
+                      : "text-gray-700"
                 }`}
               >
                 {item.name}

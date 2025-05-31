@@ -1,4 +1,5 @@
 
+import { useLocation } from "react-router-dom";
 import Navigation from "./Navigation";
 
 interface LayoutProps {
@@ -6,10 +7,13 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
   return (
     <div className="min-h-screen relative">
       <Navigation />
-      <main className="pt-20">{children}</main>
+      <main className={isHomePage ? "" : "pt-20"}>{children}</main>
     </div>
   );
 };
