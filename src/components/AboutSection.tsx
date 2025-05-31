@@ -58,7 +58,7 @@ const AboutSection = () => {
       className="h-screen flex items-center justify-start relative"
     >
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed z-0"
         style={{
           backgroundImage: `url('/lovable-uploads/b8c1098c-48ca-4e74-8eff-27b23b5d228a.png')`
         }}
