@@ -12,11 +12,11 @@ const Navigation = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm">
       <div className="container mx-auto px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="font-hanson text-2xl font-bold text-gray-900 tracking-wide">
+          <Link to="/" className="font-hanson text-2xl font-bold text-white tracking-wide">
             ali.
           </Link>
 
@@ -28,8 +28,8 @@ const Navigation = () => {
                 to={item.path}
                 className={`font-hanson text-lg font-bold tracking-wide transition-all duration-300 hover:opacity-70 ${
                   location.pathname === item.path
-                    ? "text-gray-900"
-                    : "text-gray-600"
+                    ? "text-white"
+                    : "text-white/80"
                 }`}
               >
                 {item.name}

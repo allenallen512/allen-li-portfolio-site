@@ -55,9 +55,15 @@ const AboutSection = () => {
   return (
     <section 
       id="about-section"
-      className="h-screen flex items-center justify-start bg-gray-200 relative"
+      className="h-screen flex items-center justify-start relative"
     >
-      <div className="absolute inset-0 bg-gray-200 z-0"></div>
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+        style={{
+          backgroundImage: `url('/lovable-uploads/b8c1098c-48ca-4e74-8eff-27b23b5d228a.png')`
+        }}
+      ></div>
+      <div className="absolute inset-0 bg-black/20 z-1"></div>
       <div className="relative z-10 left-8 md:left-16">
         {isVisible && (
           <div className="space-y-4">
