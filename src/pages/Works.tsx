@@ -1,8 +1,11 @@
 
+import { useEffect, useRef } from "react";
 import Layout from "../components/Layout";
 import WorkCard from "../components/WorkCard";
 
 const Works = () => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
   const caseStudies = [
     {
       id: 1,
@@ -41,6 +44,26 @@ const Works = () => {
     }
   ];
 
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      if (scrollContainerRef.current) {
+        e.preventDefault();
+        scrollContainerRef.current.scrollLeft += e.deltaY;
+      }
+    };
+
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.addEventListener('wheel', handleWheel, { passive: false });
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener('wheel', handleWheel);
+      }
+    };
+  }, []);
+
   return (
     <Layout>
       <div className="min-h-screen bg-white">
@@ -54,7 +77,11 @@ const Works = () => {
             </p>
 
             {/* Horizontal Scrolling Container */}
-            <div className="overflow-x-auto">
+            <div 
+              ref={scrollContainerRef}
+              className="overflow-x-auto overflow-y-hidden"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
               <div className="flex gap-8 pb-6" style={{ width: 'max-content' }}>
                 {caseStudies.map((study) => (
                   <WorkCard

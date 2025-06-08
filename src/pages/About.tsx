@@ -1,3 +1,4 @@
+
 import Layout from "../components/Layout";
 import TimelineTile from "../components/TimelineTile";
 import { Download } from "lucide-react";
@@ -9,18 +10,14 @@ const About = () => {
       <div className="min-h-screen bg-white text-gray-900">
         <div className="container mx-auto px-8 py-12">
           <div className="max-w-6xl mx-auto">
-            {/* Header with Resume Download */}
-            <div className="text-center mb-16">
-              <h1 className="font-hanson text-5xl md:text-6xl font-bold mb-8">
+            {/* Smaller Header */}
+            <div className="text-center mb-12">
+              <h1 className="font-hanson text-4xl md:text-5xl font-bold mb-4">
                 About
               </h1>
-              <button className="inline-flex items-center gap-2 bg-gray-900 text-white font-hanson font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300">
-                <Download size={20} />
-                Download Resume
-              </button>
             </div>
 
-            {/* Bio Section */}
+            {/* Bio Section with Download Button */}
             <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
               <div className="space-y-6">
                 <h2 className="font-hanson text-3xl font-bold">
@@ -37,6 +34,10 @@ const About = () => {
                   I collaborate with clients and teams to deliver projects that 
                   not only meet objectives but exceed expectations.
                 </p>
+                <button className="inline-flex items-center gap-2 bg-gray-900 text-white font-hanson font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300">
+                  <Download size={20} />
+                  Download Resume
+                </button>
               </div>
               
               <div className="bg-gray-100 aspect-square rounded-lg flex items-center justify-center">
