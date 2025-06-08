@@ -1,5 +1,5 @@
-
 import Layout from "../components/Layout";
+import TimelineTile from "../components/TimelineTile";
 import { Download } from "lucide-react";
 import { professionalEvents, personalEvents } from "../data/aboutData";
 
@@ -61,23 +61,13 @@ const About = () => {
                         {/* Professional Side (Left) */}
                         <div className="text-right pr-8">
                           {professionalEvents[index] && (
-                            <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-gray-900">
-                              <div className="font-hanson text-sm font-bold text-gray-500 mb-2">
-                                PROFESSIONAL
-                              </div>
-                              <div className="font-hanson text-lg font-bold text-gray-900 mb-2">
-                                {professionalEvents[index].year}
-                              </div>
-                              <h3 className="font-hanson text-xl font-bold mb-1">
-                                {professionalEvents[index].title}
-                              </h3>
-                              <p className="text-gray-600 font-medium mb-2">
-                                {professionalEvents[index].company}
-                              </p>
-                              <p className="text-gray-700 text-sm">
-                                {professionalEvents[index].description}
-                              </p>
-                            </div>
+                            <TimelineTile
+                              type="professional"
+                              year={professionalEvents[index].year}
+                              title={professionalEvents[index].title}
+                              company={professionalEvents[index].company}
+                              description={professionalEvents[index].description}
+                            />
                           )}
                         </div>
 
@@ -87,20 +77,12 @@ const About = () => {
                         {/* Personal Side (Right) */}
                         <div className="text-left pl-8">
                           {personalEvents[index] && (
-                            <div className="bg-white p-6 rounded-lg shadow-lg border-r-4 border-gray-600">
-                              <div className="font-hanson text-sm font-bold text-gray-500 mb-2">
-                                PERSONAL
-                              </div>
-                              <div className="font-hanson text-lg font-bold text-gray-900 mb-2">
-                                {personalEvents[index].year}
-                              </div>
-                              <h3 className="font-hanson text-xl font-bold mb-2">
-                                {personalEvents[index].title}
-                              </h3>
-                              <p className="text-gray-700 text-sm">
-                                {personalEvents[index].description}
-                              </p>
-                            </div>
+                            <TimelineTile
+                              type="personal"
+                              year={personalEvents[index].year}
+                              title={personalEvents[index].title}
+                              description={personalEvents[index].description}
+                            />
                           )}
                         </div>
                       </div>
