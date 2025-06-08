@@ -1,14 +1,21 @@
 
+import ProjectTags from "./ProjectTags";
+
 interface WorkCardProps {
   image: string;
   title: string;
   description: string;
   tags: string[];
+  size?: 'small' | 'large';
 }
 
-const WorkCard = ({ image, title, description, tags }: WorkCardProps) => {
+const WorkCard = ({ image, title, description, tags, size = 'small' }: WorkCardProps) => {
+  const cardWidth = size === 'large' ? 'w-[30vw]' : 'w-80';
+  const titleSize = size === 'large' ? 'text-3xl' : 'text-2xl';
+  const descriptionSize = size === 'large' ? 'text-xl' : 'text-lg';
+
   return (
-    <div className="flex-shrink-0 w-80 group cursor-pointer">
+    <div className={`flex-shrink-0 ${cardWidth} group cursor-pointer`}>
       <div className="bg-gray-100 rounded-lg overflow-hidden mb-6 aspect-video">
         <img 
           src={image} 
@@ -17,22 +24,13 @@ const WorkCard = ({ image, title, description, tags }: WorkCardProps) => {
         />
       </div>
       <div className="space-y-4">
-        <h2 className="font-hanson text-2xl font-bold text-gray-900 tracking-wide">
+        <h2 className={`font-hanson ${titleSize} font-bold text-gray-900 tracking-wide`}>
           {title}
         </h2>
-        <p className="font-hanson text-lg text-gray-600 tracking-wide">
+        <p className={`font-hanson ${descriptionSize} text-gray-600 tracking-wide`}>
           {description}
         </p>
-        <div className="flex flex-wrap gap-2">
-          {tags.map((tag, index) => (
-            <span 
-              key={index}
-              className="font-hanson text-sm bg-gray-200 text-gray-700 px-3 py-1 rounded-full tracking-wide"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+        <ProjectTags tags={tags} />
       </div>
     </div>
   );

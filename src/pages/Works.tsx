@@ -90,6 +90,7 @@ const Works = () => {
                     title={study.title}
                     description={study.description}
                     tags={study.tags}
+                    size="large"
                   />
                 ))}
                 {/* Peek element to show there's more content */}
