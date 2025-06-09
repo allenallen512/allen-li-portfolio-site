@@ -75,7 +75,7 @@ const Contact = () => {
                       href="mailto:hello@allenli.com" 
                       className="text-gray-700 hover:text-gray-900 transition-colors"
                     >
-                      hello@allenli.com
+                      allenli512@gmail.com
                     </a>
                   </div>
                   
@@ -83,7 +83,7 @@ const Contact = () => {
                     <h3 className="font-hanson text-xl font-bold mb-2">Social</h3>
                     <div className="flex space-x-4">
                       <a
-                        href="https://instagram.com"
+                        href="https://instagram.com/allenli512"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-gray-700 hover:text-gray-900 transition-colors"
@@ -91,7 +91,7 @@ const Contact = () => {
                         <Instagram size={24} />
                       </a>
                       <a
-                        href="https://linkedin.com"
+                        href="https://www.linkedin.com/in/allenli512"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-gray-700 hover:text-gray-900 transition-colors"

@@ -99,3 +99,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+  font-family: 'Hanson';
+  src: url('/fonts/Hanson-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}

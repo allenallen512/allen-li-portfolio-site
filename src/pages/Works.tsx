@@ -67,8 +67,8 @@ const Works = () => {
   return (
     <Layout>
       <div className="min-h-screen bg-white">
-        <div className="container mx-auto px-8 py-16">
-          <div className="max-w-7xl mx-auto">
+        <div className="container mx-auto px-4 py-16">
+          <div className="max-w-10xl mx-auto">
             <h1 className="font-hanson text-4xl md:text-6xl font-bold text-gray-900 mb-8 tracking-wide">
               Works
             </h1>

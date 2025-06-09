@@ -20,7 +20,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'hanson': ['Hanson', 'sans-serif'],
+				hanson: ['Hanson', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

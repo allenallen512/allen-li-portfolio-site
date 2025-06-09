@@ -1,4 +1,6 @@
 
+import AboutSection from "./AboutSection";
+
 const HeroSection = () => {
   return (
     <section className="h-screen flex items-center justify-start relative">
@@ -20,6 +22,7 @@ const HeroSection = () => {
           austin, tx
         </p>
       </div>
+
     </section>
   );
 };

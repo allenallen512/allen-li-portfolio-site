@@ -6,11 +6,10 @@ const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   
   const items = [
-    "product designer",
-    "software developer", 
+    "software developer",     "product designer",
     "product manager",
     "reader",
-    "music listener",
+    "music enjoyer",
     "runner",
     "weight lifter"
   ];

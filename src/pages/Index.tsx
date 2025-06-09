@@ -17,7 +17,7 @@ const Index = () => {
         {/* Fixed Social Media Icons */}
         <div className="fixed bottom-8 right-8 flex flex-col space-y-4 z-20">
           <a
-            href="https://instagram.com"
+            href="https://instagram.com/allenli512"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white/80 hover:text-white transition-colors duration-300"
@@ -25,7 +25,7 @@ const Index = () => {
             <Instagram size={24} />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/allenli512"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white/80 hover:text-white transition-colors duration-300"
