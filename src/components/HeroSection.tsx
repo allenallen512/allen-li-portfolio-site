@@ -1,5 +1,5 @@
 
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
 
 const HeroSection = () => {
   const carouselItems = [
@@ -37,20 +37,26 @@ const HeroSection = () => {
 
         {/* Carousel section */}
         <div className="w-full max-w-4xl">
-          <Carousel className="w-full">
+          <Carousel 
+            className="w-full"
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            autoplay={true}
+            autoplayInterval={3000}
+          >
             <CarouselContent>
               {carouselItems.map((item, index) => (
                 <CarouselItem key={index}>
                   <div className="flex items-center justify-center p-6">
-                    <h2 className="font-hanson text-4xl md:text-6xl lg:text-7xl font-bold text-white text-center leading-tight tracking-wide">
-                      I am a {item}
+                    <h2 className="font-hanson text-xl md:text-2xl lg:text-3xl font-bold text-white/80 text-center leading-tight tracking-wide">
+                      {item}
                     </h2>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="text-white border-white hover:bg-white hover:text-black" />
-            <CarouselNext className="text-white border-white hover:bg-white hover:text-black" />
           </Carousel>
         </div>
       </div>
