@@ -8,8 +8,8 @@ const About = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // When the bio section is no longer visible (user scrolled past it)
-        if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+        // When the bio section is halfway out of view (50% exited)
+        if (!entry.isIntersecting && entry.boundingClientRect.top < -entry.boundingClientRect.height / 2) {
           // Scroll to timeline section
           const timelineSection = document.getElementById('timeline-section');
           if (timelineSection) {
@@ -21,8 +21,8 @@ const About = () => {
         }
       },
       { 
-        threshold: 0.1,
-        rootMargin: '-50px 0px -50px 0px'
+        threshold: 0,
+        rootMargin: '0px'
       }
     );
 

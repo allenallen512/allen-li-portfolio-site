@@ -1,3 +1,4 @@
+
 import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
@@ -12,7 +13,9 @@ const Navigation = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+    <header className={`fixed top-0 left-0 right-0 z-50 ${
+      isHomePage ? "bg-transparent" : "bg-white/95 backdrop-blur-sm border-b border-gray-200"
+    }`}>
       <div className="w-full px-0">
         <div className="flex items-center justify-between h-20 w-full">
           {/* Left: Logo */}
