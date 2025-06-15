@@ -1,39 +1,49 @@
-import { useEffect } from "react";
+
+import { useEffect, useRef } from "react";
 import Layout from "../components/Layout";
 import TimelineTile from "../components/TimelineTile";
 import { Download } from "lucide-react";
 import { professionalEvents, personalEvents } from "../data/aboutData";
 
 const About = () => {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // When the bio section is halfway out of view (50% exited)
-        if (!entry.isIntersecting && entry.boundingClientRect.top < -entry.boundingClientRect.height / 2) {
-          // Scroll to timeline section
-          const timelineSection = document.getElementById('timeline-section');
-          if (timelineSection) {
-            timelineSection.scrollIntoView({ 
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        }
-      },
-      { 
-        threshold: 0,
-        rootMargin: '0px'
-      }
-    );
+  const hasScrolledToTimeline = useRef(false);
 
-    const bioSection = document.getElementById('bio-section');
-    if (bioSection) {
-      observer.observe(bioSection);
+  useEffect(() => {
+    // Observer for timeline header
+    const timelineSection = document.getElementById('timeline-section');
+    let observer: IntersectionObserver | null = null;
+
+    if (timelineSection && !hasScrolledToTimeline.current) {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          // Trigger when the top of timeline header is halfway up the viewport
+          if (entry.isIntersecting && entry.intersectionRatio > 0) {
+            const rect = entry.boundingClientRect;
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+            // Check if the top is around halfway up the viewport (approx. 40%-60% of viewport height)
+            if (rect.top > viewportHeight * 0.3 && rect.top < viewportHeight * 0.6) {
+              // Scroll the timeline section to the top smoothly
+              timelineSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+              });
+              hasScrolledToTimeline.current = true; // Only scroll once
+              if (observer) observer.disconnect();
+            }
+          }
+        },
+        {
+          threshold: 0, // callback fires as soon as any part is visible
+        }
+      );
+
+      observer.observe(timelineSection);
     }
 
+    // Cleanup
     return () => {
-      if (bioSection) {
-        observer.unobserve(bioSection);
+      if (observer && timelineSection) {
+        observer.unobserve(timelineSection);
       }
     };
   }, []);
@@ -133,3 +143,4 @@ const About = () => {
 };
 
 export default About;
+
