@@ -7,7 +7,16 @@ const HeroSection = () => {
     "visual storyteller", 
     "brand strategist",
     "design enthusiast",
-    "problem solver"
+    "problem solver",
+    "software developer",
+    "product designer",
+    "product manager",
+    "reader",
+    "music enjoyer",
+    "runner",
+    "weight lifter",
+    "innovator",
+    "collaborator"
   ];
 
   return (
@@ -45,7 +54,7 @@ const HeroSection = () => {
               slidesToScroll: 1,
             }}
             autoplay={true}
-            autoplayInterval={2500}
+            autoplayInterval={2000}
           >
             <CarouselContent className="-ml-2 md:-ml-4">
               {carouselItems.map((item, index) => (

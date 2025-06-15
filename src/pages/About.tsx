@@ -1,10 +1,43 @@
-
+import { useEffect } from "react";
 import Layout from "../components/Layout";
 import TimelineTile from "../components/TimelineTile";
 import { Download } from "lucide-react";
 import { professionalEvents, personalEvents } from "../data/aboutData";
 
 const About = () => {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // When the bio section is no longer visible (user scrolled past it)
+        if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+          // Scroll to timeline section
+          const timelineSection = document.getElementById('timeline-section');
+          if (timelineSection) {
+            timelineSection.scrollIntoView({ 
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      },
+      { 
+        threshold: 0.1,
+        rootMargin: '-50px 0px -50px 0px'
+      }
+    );
+
+    const bioSection = document.getElementById('bio-section');
+    if (bioSection) {
+      observer.observe(bioSection);
+    }
+
+    return () => {
+      if (bioSection) {
+        observer.unobserve(bioSection);
+      }
+    };
+  }, []);
+
   return (
     <Layout>
       <div className="min-h-screen bg-white text-gray-900">
@@ -18,7 +51,7 @@ const About = () => {
             </div>
 
             {/* Bio Section with Download Button */}
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+            <div id="bio-section" className="grid md:grid-cols-2 gap-12 items-center mb-20">
               <div className="space-y-6">
                 <h2 className="font-hanson text-3xl font-bold">
                   Creative Professional
@@ -46,7 +79,7 @@ const About = () => {
             </div>
 
             {/* Timeline Section */}
-            <div className="relative">
+            <div id="timeline-section" className="relative">
               <h2 className="font-hanson text-4xl font-bold text-center mb-16">Timeline</h2>
               
               {/* Timeline Container */}
