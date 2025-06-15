@@ -36,21 +36,22 @@ const HeroSection = () => {
         </div>
 
         {/* Carousel section */}
-        <div className="w-full max-w-4xl">
+        <div className="w-full max-w-6xl">
           <Carousel 
             className="w-full"
             opts={{
               align: "start",
               loop: true,
+              slidesToScroll: 1,
             }}
             autoplay={true}
-            autoplayInterval={3000}
+            autoplayInterval={2500}
           >
-            <CarouselContent>
+            <CarouselContent className="-ml-2 md:-ml-4">
               {carouselItems.map((item, index) => (
-                <CarouselItem key={index}>
-                  <div className="flex items-center justify-center p-6">
-                    <h2 className="font-hanson text-xl md:text-2xl lg:text-3xl font-bold text-white/80 text-center leading-tight tracking-wide">
+                <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
+                  <div className="flex items-center justify-center p-3">
+                    <h2 className="font-hanson text-sm md:text-base lg:text-lg font-bold text-white/70 text-center leading-tight tracking-wide">
                       {item}
                     </h2>
                   </div>
