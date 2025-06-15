@@ -2,17 +2,13 @@
 import { Instagram, Linkedin } from "lucide-react";
 import Layout from "../components/Layout";
 import HeroSection from "../components/HeroSection";
-import AboutSection from "../components/AboutSection";
 
 const Index = () => {
   return (
     <Layout>
       <div className="relative">
-        {/* Hero Section with Name */}
+        {/* Hero Section with Name and Carousel */}
         <HeroSection />
-        
-        {/* About Section with "I am a..." */}
-        <AboutSection />
 
         {/* Fixed Social Media Icons */}
         <div className="fixed bottom-8 right-8 flex flex-col space-y-4 z-20">
