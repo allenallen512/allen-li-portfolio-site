@@ -3,11 +3,6 @@ import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
 
 const HeroSection = () => {
   const carouselItems = [
-    "creative professional",
-    "visual storyteller", 
-    "brand strategist",
-    "design enthusiast",
-    "problem solver",
     "software developer",
     "product designer",
     "product manager",
@@ -15,8 +10,7 @@ const HeroSection = () => {
     "music enjoyer",
     "runner",
     "weight lifter",
-    "innovator",
-    "collaborator"
+
   ];
 
   return (
@@ -45,7 +39,7 @@ const HeroSection = () => {
         </div>
 
         {/* Carousel section */}
-        <div className="w-full max-w-6xl">
+        <div className="w-full">
           <Carousel 
             className="w-full"
             opts={{

@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 import Layout from "../components/Layout";
 import TimelineTile from "../components/TimelineTile";
@@ -64,27 +63,37 @@ const About = () => {
             <div id="bio-section" className="grid md:grid-cols-2 gap-12 items-center mb-20">
               <div className="space-y-6">
                 <h2 className="font-hanson text-3xl font-bold">
-                  Creative Professional
+                  Allen Li
                 </h2>
                 <p className="text-lg leading-relaxed text-gray-700">
-                  Based in Austin, Texas, I'm a passionate creative professional 
-                  dedicated to bringing innovative ideas to life. My work spans 
-                  across multiple disciplines, always seeking to push boundaries 
-                  and create meaningful experiences.
+                  Currently in: Austin, TX 
                 </p>
                 <p className="text-lg leading-relaxed text-gray-700">
-                  With a keen eye for detail and a commitment to excellence, 
-                  I collaborate with clients and teams to deliver projects that 
-                  not only meet objectives but exceed expectations.
+                  Software Engineer at Dell Technologies with experience in supply chain modernization 
+                  and product design. I specialize in full-stack development, automation, and creating 
+                  scalable solutions that drive operational efficiency.
                 </p>
-                <button className="inline-flex items-center gap-2 bg-gray-900 text-white font-hanson font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300">
+                <p className="text-lg leading-relaxed text-gray-700">
+                  Recent Texas A&M graduate (Cum Laude) with a Computer Engineering degree and Mathematics 
+                  Minor. Passionate about ML engineering, embedded systems, and entrepreneurship. 
+                  Co-founder of WNDR ENGN and winner of 2nd Place Capstone with a provisional patent.
+                </p>
+                <a
+                  href="/assets/Allen_Li_Resume (23).pdf"
+                  download
+                  className="inline-flex items-center gap-2 bg-gray-900 text-white font-hanson font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300"
+                >
                   <Download size={20} />
                   Download Resume
-                </button>
+                </a>
               </div>
               
-              <div className="bg-gray-100 aspect-square rounded-lg flex items-center justify-center">
-                <p className="text-gray-500 font-hanson">Photo Coming Soon</p>
+              <div className="bg-gray-100 aspect-square rounded-lg flex items-center justify-center overflow-hidden">
+                <img
+                  src="/assets/grad_pic.jpeg"
+                  alt="Allen Li Graduation"
+                  className="object-cover w-full h-full"
+                />
               </div>
             </div>
 

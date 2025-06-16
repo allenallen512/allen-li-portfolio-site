@@ -1,50 +1,72 @@
 
 export const professionalEvents = [
   {
+    year: "Currently",
+    title: "Software Engineer",
+    company: "Dell Technologies",
+    description: "Working on Supply Chain Modernization initiatives"
+  },
+  {
+    year: "2024",
+    title: "Graduated Cum Laude",
+    company: "Texas A&M University",
+    description: "B.S. Computer Engineering & Mathematics Minor, 2nd Place CSCE Capstone"
+  },
+  {
+    year: "2024",
+    title: "Software Engineer Intern",
+    company: "Dell Technologies",
+    description: "Automated demand verification process, reduced runtime by 75% using Python and SQL"
+  },
+  {
     year: "2023",
-    title: "Senior Creative Director",
-    company: "Design Studio Inc.",
-    description: "Leading creative vision and strategy for major client projects"
+    title: "Product Design Intern",
+    company: "Dell Technologies",
+    description: "Led internal product design initiative, conducted user interviews and story mapping"
   },
   {
-    year: "2021",
-    title: "Creative Director",
-    company: "Brand Agency Co.",
-    description: "Managed creative team and developed brand identities for Fortune 500 clients"
+    year: "2022",
+    title: "Inside Systems/Sales Engineer Intern",
+    company: "Poly (HP)",
+    description: "Engaged clients and conducted comprehensive hardware testing across ecosystems"
   },
-  {
-    year: "2019",
-    title: "Senior Designer",
-    company: "Digital Solutions Ltd.",
-    description: "Specialized in digital design and user experience for web applications"
-  },
-  {
-    year: "2017",
-    title: "Graphic Designer",
-    company: "Creative House",
-    description: "Created visual content for print and digital media campaigns"
-  }
+  // {
+  //   year: "2021",
+  //   title: "Started College",
+  //   company: "Texas A&M University",
+  //   description: "Began Computer Engineering program with Mathematics Minor"
+  // }
 ];
 
 export const personalEvents = [
   {
+    year: "2025",
+    title: "Living in Austin",
+    description: "Started professional career and enjoying the vibrant tech scene in Austin, TX"
+  },
+  {
+    year: "2024",
+    title: "Solar Tracker Project",
+    description: "Won 2nd Place Capstone Expo with provisional patent for ML-powered solar tracking system"
+  },
+  {
     year: "2023",
-    title: "Moved to Austin",
-    description: "Relocated to Austin, Texas to embrace the vibrant creative scene"
+    title: "Co-founded WNDR ENGN",
+    description: "Launched 'Locals' platform to elevate bar district nightlife with customer insights"
   },
   {
     year: "2022",
-    title: "Photography Exhibition",
-    description: "First solo photography exhibition showcasing urban landscapes"
+    title: "Awarded Recruitment Excellence & Rising Start",
+    description: "Received Recruitment Excellence Award from Alpha Tau Omega Nationals and IFC Rising Star Leadership Award"
+  },
+  {
+    year: "2021",
+    title: "Director of Recruitment, Local Corporate Director IEEE",
+    description: "Became Director of Recruitment for Alpha Tau Omega, managing $45K budget and 120+ members. During the same time served as Local Corporate Director for IEEE, overseeing the annual hardware-hackathon."
   },
   {
     year: "2020",
-    title: "Started Design Blog",
-    description: "Launched personal blog about design trends and creative processes"
-  },
-  {
-    year: "2018",
-    title: "Design Mentorship",
-    description: "Began mentoring junior designers and students"
+    title: "Graduated high school, started at Texas A&M",
+    description: "Graduated from high school and began my journey at Texas A&M University"
   }
 ];
