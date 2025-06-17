@@ -69,14 +69,12 @@ const About = () => {
                   Currently in: Austin, TX 
                 </p>
                 <p className="text-lg leading-relaxed text-gray-700">
-                  Software Engineer at Dell Technologies with experience in supply chain modernization 
-                  and product design. I specialize in full-stack development, automation, and creating 
-                  scalable solutions that drive operational efficiency.
+                  Software Engineer at Dell Technologies. Passionate about building 
+                  high quality and innovative solutions for problems that matter.
                 </p>
                 <p className="text-lg leading-relaxed text-gray-700">
                   Recent Texas A&M graduate (Cum Laude) with a Computer Engineering degree and Mathematics 
-                  Minor. Passionate about ML engineering, embedded systems, and entrepreneurship. 
-                  Co-founder of WNDR ENGN and winner of 2nd Place Capstone with a provisional patent.
+                  Minor. Passionate about self-development, technology, and making a positive impact in the world.
                 </p>
                 <a
                   href="/assets/Allen_Li_Resume (23).pdf"

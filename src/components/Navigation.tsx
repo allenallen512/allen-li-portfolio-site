@@ -1,4 +1,3 @@
-
 import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
@@ -18,13 +17,13 @@ const Navigation = () => {
     }`}>
       <div className="w-full px-0">
         <div className="flex items-center justify-between h-20 w-full">
-          {/* Left: Logo */}
-          <div className="pl-8">
-            <Link to="/" className={`font-hanson text-6xl font-bold tracking-wide ${
-              isHomePage ? "text-white" : "text-gray-900"
-            }`}>
-              ali.
-            </Link>
+          {/* Left: Logo Image and Text */}
+          <div className="pl-8 flex items-center gap-4">
+            <img
+              src={isHomePage ? "/assets/inverted-logo.png" : "/assets/personal-logo.png"}
+              alt="Allen Li Logo"
+              className="h-28 w-28 object-contain"
+            />
           </div>
           {/* Right: Navigation */}
           <div className="pr-8">

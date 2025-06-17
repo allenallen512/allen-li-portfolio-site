@@ -1,7 +1,7 @@
-
 import { useState } from "react";
 import Layout from "../components/Layout";
 import { Instagram, Linkedin, Send } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +10,8 @@ const Contact = () => {
     subject: "",
     message: ""
   });
+  const [sending, setSending] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -19,26 +21,30 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Create mailto link with form data
-    const subject = encodeURIComponent(formData.subject || "Portfolio Contact");
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
-    const mailtoLink = `mailto:hello@allenli.com?subject=${subject}&body=${body}`;
-    
-    // Open default email client
-    window.location.href = mailtoLink;
-    
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: ""
-    });
+    setSending(true);
+    setSuccess(false);
+
+    try {
+      await emailjs.send(
+        "service_y0jlh8g",      // Replace with your EmailJS service ID
+        "template_uyg8sld",     // Replace with your EmailJS template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        "Q5-f7X-gkCI9EBo82"       // Replace with your EmailJS public key
+      );
+      setSuccess(true);
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      alert("Failed to send message. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -171,10 +177,14 @@ const Contact = () => {
                   <button
                     type="submit"
                     className="w-full bg-gray-900 text-white font-hanson font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300 flex items-center justify-center gap-2"
+                    disabled={sending}
                   >
                     <Send size={18} />
-                    Send Message
+                    {sending ? "Sending..." : "Send Message"}
                   </button>
+                  {success && (
+                    <p className="text-green-600 font-bold mt-2">Message sent successfully!</p>
+                  )}
                 </form>
               </div>
             </div>

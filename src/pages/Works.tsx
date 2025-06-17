@@ -9,10 +9,10 @@ const Works = () => {
   const caseStudies = [
     {
       id: 1,
-      title: "Project Alpha",
-      description: "A comprehensive design system for a fintech startup that revolutionized their user experience.",
+      title: "Chasers",
+      description: "App designed to rewards users for being present in their local communities.",
       image: "/placeholder.svg",
-      tags: ["UI/UX Design", "Product Strategy", "Design Systems"]
+      tags: ["UI/UX Design", "Product Strategy", "Mobile Development"]
     },
     {
       id: 2,
@@ -30,17 +30,10 @@ const Works = () => {
     },
     {
       id: 4,
-      title: "Brand Identity",
-      description: "Complete brand redesign for a tech startup including logo, typography, and visual guidelines.",
+      title: "Solar Tracker - Provisional Patent",
+      description: "Weatherproof solar-powered irradiance forecasting & weather-data collection system powered by a Raspberry Pi, AWS, and customized ML.",
       image: "/placeholder.svg",
-      tags: ["Branding", "Visual Design", "Typography"]
-    },
-    {
-      id: 5,
-      title: "SaaS Dashboard",
-      description: "Enterprise dashboard design for data analytics platform with complex data visualization.",
-      image: "/placeholder.svg",
-      tags: ["Dashboard Design", "Data Viz", "Enterprise UX"]
+      tags: ["Machine Learning", "Embedded Systems", "2nd Place Capstone Expo"]
     }
   ];
 
