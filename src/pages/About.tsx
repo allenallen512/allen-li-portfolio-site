@@ -1,51 +1,43 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Layout from "../components/Layout";
 import TimelineTile from "../components/TimelineTile";
 import { Download } from "lucide-react";
 import { professionalEvents, personalEvents } from "../data/aboutData";
 
 const About = () => {
-  const hasScrolledToTimeline = useRef(false);
-
+  const bioSectionRef = useRef<HTMLDivElement>(null);
+  const timelineSectionRef = useRef<HTMLDivElement>(null);
+  const [currentSection, setCurrentSection] = useState<'bio' | 'timeline'>('bio');
+  
   useEffect(() => {
-    // Observer for timeline header
-    const timelineSection = document.getElementById('timeline-section');
-    let observer: IntersectionObserver | null = null;
-
-    if (timelineSection && !hasScrolledToTimeline.current) {
-      observer = new IntersectionObserver(
-        ([entry]) => {
-          // Trigger when the top of timeline header is halfway up the viewport
-          if (entry.isIntersecting && entry.intersectionRatio > 0) {
-            const rect = entry.boundingClientRect;
-            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-            // Check if the top is around halfway up the viewport (approx. 40%-60% of viewport height)
-            if (rect.top > viewportHeight * 0.3 && rect.top < viewportHeight * 0.6) {
-              // Scroll the timeline section to the top smoothly
-              timelineSection.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-              });
-              hasScrolledToTimeline.current = true; // Only scroll once
-              if (observer) observer.disconnect();
-            }
-          }
-        },
-        {
-          threshold: 0, // callback fires as soon as any part is visible
+    const bioSection = bioSectionRef.current;
+    const timelineSection = timelineSectionRef.current;
+    let scrollTimeout: NodeJS.Timeout;
+    
+    const handleScroll = () => {
+      clearTimeout(scrollTimeout);
+      
+      scrollTimeout = setTimeout(() => {
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        
+        if (scrollPosition > windowHeight * 0.3 && currentSection === 'bio') {
+          timelineSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setCurrentSection('timeline');
+        } else if (scrollPosition < windowHeight * 0.3 && currentSection === 'timeline') {
+          bioSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setCurrentSection('bio');
         }
-      );
-
-      observer.observe(timelineSection);
-    }
-
-    // Cleanup
-    return () => {
-      if (observer && timelineSection) {
-        observer.unobserve(timelineSection);
-      }
+      }, 50); // Small delay to prevent rapid firing
     };
-  }, []);
+
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimeout);
+    };
+  }, [currentSection]);
 
   return (
     <Layout>
@@ -60,7 +52,7 @@ const About = () => {
             </div>
 
             {/* Bio Section with Download Button */}
-            <div id="bio-section" className="grid md:grid-cols-2 gap-12 items-center mb-20">
+            <div id="bio-section" ref={bioSectionRef} className="grid md:grid-cols-2 gap-12 items-center mb-20">
               <div className="space-y-6">
                 <h2 className="font-hanson text-3xl font-bold">
                   Allen Li
@@ -96,7 +88,7 @@ const About = () => {
             </div>
 
             {/* Timeline Section */}
-            <div id="timeline-section" className="relative">
+            <div id="timeline-section" ref={timelineSectionRef} className="relative">
               <h2 className="font-hanson text-4xl font-bold text-center mb-16">Timeline</h2>
               
               {/* Timeline Container */}
