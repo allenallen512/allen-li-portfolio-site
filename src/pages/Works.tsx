@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 import Layout from "../components/Layout";
 import WorkCard from "../components/WorkCard";
@@ -11,21 +10,21 @@ const Works = () => {
       id: 1,
       title: "Chasers",
       description: "App designed to rewards users for being present in their local communities.",
-      image: "public/photos/chaser/chaser_logo.png",
+      image: "/images/chaser/chaser_logo.png",
       tags: ["In-Progress", "UI/UX Design", "GTM", "Mobile Development"]
     },
     {
       id: 2,
       title: "Solar Tracker",
       description: "Weatherproof solar-powered irradiance forecasting & weather-data collection system powered by a Raspberry Pi, AWS, and customized ML.",
-      image: "public/photos/solarTracker/stock-vector-sun-solar-energy-tech-logos-1935426061-transformed_LE_auto_x4-removebg-preview.png",
+      image: "/images/solarTracker/STlogo.png",
       tags: ["Machine Learning", "Provisional Patent", "Embedded Systems", "2nd Place Capstone Expo"]
     },
     {
       id: 3,
       title: "wndr haus",
       description: "Application designed for creatives to rent out local spaces for events, workshops, dispatches, and more. Was never launched.",
-      image: "public/photos/haus/wndrhaus submark.svg",
+      image: "/images/haus/wndrhaussubmark.svg",
       tags: ["React", "Supabase", "Product Strategy"]
     },
   ];
