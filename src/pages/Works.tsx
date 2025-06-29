@@ -12,14 +12,14 @@ const Works = () => {
       title: "Chasers",
       description: "App designed to rewards users for being present in their local communities.",
       image: "public/photos/chaser/chaser_logo.png",
-      tags: ["In-Progress", "UI/UX Design", "Product Strategy", "Mobile Development"]
+      tags: ["In-Progress", "UI/UX Design", "GTM", "Mobile Development"]
     },
     {
       id: 2,
-      title: "Solar Tracker - Provisional Patent",
+      title: "Solar Tracker",
       description: "Weatherproof solar-powered irradiance forecasting & weather-data collection system powered by a Raspberry Pi, AWS, and customized ML.",
       image: "public/photos/solarTracker/stock-vector-sun-solar-energy-tech-logos-1935426061-transformed_LE_auto_x4-removebg-preview.png",
-      tags: ["Machine Learning", "Embedded Systems", "2nd Place Capstone Expo"]
+      tags: ["Machine Learning", "Provisional Patent", "Embedded Systems", "2nd Place Capstone Expo"]
     },
     {
       id: 3,
