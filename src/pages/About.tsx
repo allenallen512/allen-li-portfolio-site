@@ -65,8 +65,12 @@ const About = () => {
                   high quality and innovative solutions for problems that matter.
                 </p>
                 <p className="text-lg leading-relaxed text-gray-700">
+                  I've been awarded multiple organizational accolades for my work in leadership and recruitment. I pride myself on 
+                  versatility and adaptability, always eager to learn and grow in new environments.
+                </p>
+                <p className="text-lg leading-relaxed text-gray-700">
                   Recent Texas A&M graduate (Cum Laude) with a Computer Engineering degree and Mathematics 
-                  Minor. Passionate about self-development, technology, and making a positive impact in the world.
+                  Minor.
                 </p>
                 <a
                   href="/assets/Allen_Li_Resume (23).pdf"

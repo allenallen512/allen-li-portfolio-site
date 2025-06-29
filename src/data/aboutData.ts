@@ -54,6 +54,11 @@ export const personalEvents = [
     description: "Won 2nd Place Capstone Expo with provisional patent for ML-powered solar tracking system"
   },
   {
+    year: "2024",
+    title: "Texas A&M Water Polo Team",
+    description: "Returned to play on the Texas A&M Water Polo A-Team for my senior year"
+  },
+  {
     year: "2023",
     title: "Co-founded WNDR ENGN",
     description: "Brain child between a friend and I - WNDR aimed to foster cultural curation, community, and engagement of the fellow minded."

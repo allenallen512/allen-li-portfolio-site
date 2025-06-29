@@ -12,7 +12,7 @@ const Works = () => {
       title: "Chasers",
       description: "App designed to rewards users for being present in their local communities.",
       image: "public/photos/chaser/chaser_logo.png",
-      tags: ["UI/UX Design", "Product Strategy", "Mobile Development"]
+      tags: ["In-Progress", "UI/UX Design", "Product Strategy", "Mobile Development"]
     },
     {
       id: 2,
@@ -20,7 +20,14 @@ const Works = () => {
       description: "Weatherproof solar-powered irradiance forecasting & weather-data collection system powered by a Raspberry Pi, AWS, and customized ML.",
       image: "public/photos/solarTracker/stock-vector-sun-solar-energy-tech-logos-1935426061-transformed_LE_auto_x4-removebg-preview.png",
       tags: ["Machine Learning", "Embedded Systems", "2nd Place Capstone Expo"]
-    }
+    },
+    {
+      id: 3,
+      title: "wndr haus",
+      description: "Application designed for creatives to rent out local spaces for events, workshops, dispatches, and more. Was never launched.",
+      image: "public/photos/haus/wndrhaus submark.svg",
+      tags: ["React", "Supabase", "Product Strategy"]
+    },
   ];
 
   useEffect(() => {

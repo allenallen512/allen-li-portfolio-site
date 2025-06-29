@@ -1,4 +1,3 @@
-
 import ProjectTags from "./ProjectTags";
 
 interface WorkCardProps {
@@ -16,11 +15,11 @@ const WorkCard = ({ image, title, description, tags, size = 'small' }: WorkCardP
 
   return (
     <div className={`flex-shrink-0 ${cardWidth} group cursor-pointer`}>
-      <div className="bg-gray-100 rounded-lg overflow-hidden mb-6 aspect-video">
+      <div className="rounded-lg overflow-hidden mb-6 aspect-video">
         <img 
           src={image} 
           alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-full max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
         />
       </div>
       <div className="space-y-4">
