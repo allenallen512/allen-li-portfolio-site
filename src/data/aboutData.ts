@@ -39,10 +39,14 @@ export const professionalEvents = [
 ];
 
 export const personalEvents = [
+  {year: "Febuary 2025",
+    title: "started building chaser",
+    description: "started building chaser - the going out app"
+  },
   {
     year: "2025",
-    title: "Living in Austin",
-    description: "Started professional career and enjoying the vibrant tech scene in Austin, TX"
+    title: "Moved back to Austin",
+    description: "Started professional career in Austin, TX"
   },
   {
     year: "2024",
@@ -52,7 +56,7 @@ export const personalEvents = [
   {
     year: "2023",
     title: "Co-founded WNDR ENGN",
-    description: "Launched 'Locals' platform to elevate bar district nightlife with customer insights"
+    description: "Brain child between a friend and I - WNDR aimed to foster cultural curation, community, and engagement of the fellow minded."
   },
   {
     year: "2022",
@@ -64,6 +68,7 @@ export const personalEvents = [
     title: "Director of Recruitment, Local Corporate Director IEEE",
     description: "Became Director of Recruitment for Alpha Tau Omega, managing $45K budget and 120+ members. During the same time served as Local Corporate Director for IEEE, overseeing the annual hardware-hackathon."
   },
+
   {
     year: "2020",
     title: "Graduated high school, started at Texas A&M",

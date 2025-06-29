@@ -11,28 +11,14 @@ const Works = () => {
       id: 1,
       title: "Chasers",
       description: "App designed to rewards users for being present in their local communities.",
-      image: "/placeholder.svg",
+      image: "public/photos/chaser/chaser_logo.png",
       tags: ["UI/UX Design", "Product Strategy", "Mobile Development"]
     },
     {
       id: 2,
-      title: "Mobile App Redesign",
-      description: "Complete overhaul of a fitness tracking application with focus on user engagement and retention.",
-      image: "/placeholder.svg",
-      tags: ["Mobile Design", "User Research", "Prototyping"]
-    },
-    {
-      id: 3,
-      title: "E-commerce Platform",
-      description: "Full-stack development of a custom e-commerce solution with modern payment integration.",
-      image: "/placeholder.svg",
-      tags: ["Full-Stack Development", "React", "Node.js"]
-    },
-    {
-      id: 4,
       title: "Solar Tracker - Provisional Patent",
       description: "Weatherproof solar-powered irradiance forecasting & weather-data collection system powered by a Raspberry Pi, AWS, and customized ML.",
-      image: "/placeholder.svg",
+      image: "public/photos/solarTracker/stock-vector-sun-solar-energy-tech-logos-1935426061-transformed_LE_auto_x4-removebg-preview.png",
       tags: ["Machine Learning", "Embedded Systems", "2nd Place Capstone Expo"]
     }
   ];
