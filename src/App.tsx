@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Works from "./pages/Works";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import { Analytics } from "@vercel/analytics/next"
 
 const queryClient = new QueryClient();
 
