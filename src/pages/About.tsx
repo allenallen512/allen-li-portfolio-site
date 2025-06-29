@@ -73,7 +73,7 @@ const About = () => {
                   Minor.
                 </p>
                 <a
-                  href="/assets/Allen_Li_Resume (23).pdf"
+                  href="/assets/Allen_Li_Resume.pdf"
                   download
                   className="inline-flex items-center gap-2 bg-gray-900 text-white font-hanson font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300"
                 >
