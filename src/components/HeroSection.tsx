@@ -4,12 +4,16 @@ import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
 const HeroSection = () => {
   const carouselItems = [
     "software developer",
+    "gym rat",
     "product designer",
+    "traveler",
+    "water polo player",
+    "Aggie",
     "product manager",
     "reader",
     "music enjoyer",
     "runner",
-    "weight lifter",
+
 
   ];
 
