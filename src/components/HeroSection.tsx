@@ -52,7 +52,7 @@ const HeroSection = () => {
               slidesToScroll: 1,
             }}
             autoplay={true}
-            autoplayInterval={2000}
+            autoplayInterval={1000}
           >
             <CarouselContent className="-ml-2 md:-ml-4">
               {carouselItems.map((item, index) => (
