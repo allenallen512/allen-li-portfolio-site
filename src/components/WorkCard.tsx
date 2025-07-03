@@ -9,9 +9,9 @@ interface WorkCardProps {
 }
 
 const WorkCard = ({ image, title, description, tags, size = 'small' }: WorkCardProps) => {
-  const cardWidth = size === 'large' ? 'w-[30vw]' : 'w-80';
-  const titleSize = size === 'large' ? 'text-3xl' : 'text-2xl';
-  const descriptionSize = size === 'large' ? 'text-xl' : 'text-lg';
+  const cardWidth = size === 'large' ? 'w-full md:w-[30vw]' : 'w-full md:w-80';
+  const titleSize = size === 'large' ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl';
+  const descriptionSize = size === 'large' ? 'text-lg md:text-xl' : 'text-base md:text-lg';
 
   return (
     <div className={`flex-shrink-0 ${cardWidth} group cursor-pointer`}>

@@ -50,35 +50,36 @@ const Contact = () => {
   return (
     <Layout>
       <div className="min-h-screen bg-white text-gray-900">
-        <div className="container mx-auto px-8 py-12">
+        <div className="container mx-auto px-4 sm:px-8 py-8 sm:py-12">
           <div className="max-w-4xl mx-auto">
-            <h1 className="font-hanson text-5xl md:text-6xl font-bold mb-12 text-center">
+            <h1 className="font-hanson text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 sm:mb-12 text-center">
               Contact
             </h1>
             
-            <div className="grid md:grid-cols-2 gap-12">
-              <div className="space-y-8">
+            <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12">
+              {/* Info Section */}
+              <div className="space-y-6 sm:space-y-8">
                 <div>
-                  <h2 className="font-hanson text-3xl font-bold mb-6">
+                  <h2 className="font-hanson text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">
                     Let's Work Together
                   </h2>
-                  <p className="text-lg leading-relaxed text-gray-700 mb-8">
+                  <p className="text-base sm:text-lg leading-relaxed text-gray-700 mb-6 sm:mb-8">
                     I'm always excited to collaborate on new projects and explore 
                     creative opportunities. Whether you have a specific vision in mind 
                     or want to discuss possibilities, I'd love to hear from you.
                   </p>
                 </div>
                 
-                <div className="space-y-4">
+                <div className="space-y-4 sm:space-y-6">
                   <div>
-                    <h3 className="font-hanson text-xl font-bold mb-2">Location</h3>
+                    <h3 className="font-hanson text-lg sm:text-xl font-bold mb-2">Location</h3>
                     <p className="text-gray-700">Austin, Texas</p>
                   </div>
                   
                   <div>
-                    <h3 className="font-hanson text-xl font-bold mb-2">Email</h3>
+                    <h3 className="font-hanson text-lg sm:text-xl font-bold mb-2">Email</h3>
                     <a 
-                      href="mailto:hello@allenli.com" 
+                      href="mailto:allenli512@gmail.com" 
                       className="text-gray-700 hover:text-gray-900 transition-colors"
                     >
                       allenli512@gmail.com
@@ -86,31 +87,32 @@ const Contact = () => {
                   </div>
                   
                   <div>
-                    <h3 className="font-hanson text-xl font-bold mb-2">Social</h3>
-                    <div className="flex space-x-4">
+                    <h3 className="font-hanson text-lg sm:text-xl font-bold mb-2">Social</h3>
+                    <div className="flex items-center space-x-6">
                       <a
                         href="https://instagram.com/allenli512"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-700 hover:text-gray-900 transition-colors"
+                        className="text-gray-700 hover:text-gray-900 transition-colors p-2 hover:bg-gray-100 rounded-full"
                       >
-                        <Instagram size={24} />
+                        <Instagram size={28} />
                       </a>
                       <a
                         href="https://www.linkedin.com/in/allenli512"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-700 hover:text-gray-900 transition-colors"
+                        className="text-gray-700 hover:text-gray-900 transition-colors p-2 hover:bg-gray-100 rounded-full"
                       >
-                        <Linkedin size={24} />
+                        <Linkedin size={28} />
                       </a>
                     </div>
                   </div>
                 </div>
               </div>
               
-              <div className="bg-gray-50 p-8 rounded-lg">
-                <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Form Section */}
+              <div className="bg-gray-50 p-6 sm:p-8 rounded-lg shadow-sm">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                   <div>
                     <label htmlFor="name" className="block font-hanson text-sm font-bold mb-2">
                       Name *
@@ -122,7 +124,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all text-base"
                       placeholder="Your name"
                     />
                   </div>
@@ -138,7 +140,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all text-base"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -153,7 +155,7 @@ const Contact = () => {
                       name="subject"
                       value={formData.subject}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all text-base"
                       placeholder="Project inquiry"
                     />
                   </div>
@@ -169,21 +171,24 @@ const Contact = () => {
                       onChange={handleInputChange}
                       rows={5}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all resize-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all resize-none text-base"
                       placeholder="Tell me about your project..."
                     />
                   </div>
                   
                   <button
                     type="submit"
-                    className="w-full bg-gray-900 text-white font-hanson font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300 flex items-center justify-center gap-2"
+                    className="w-full bg-gray-900 text-white font-hanson font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     disabled={sending}
                   >
                     <Send size={18} />
                     {sending ? "Sending..." : "Send Message"}
                   </button>
+                  
                   {success && (
-                    <p className="text-green-600 font-bold mt-2">Message sent successfully!</p>
+                    <div className="bg-green-50 text-green-600 font-bold p-4 rounded-lg text-center">
+                      Message sent successfully!
+                    </div>
                   )}
                 </form>
               </div>

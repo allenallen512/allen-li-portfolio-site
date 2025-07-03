@@ -42,47 +42,47 @@ const About = () => {
   return (
     <Layout>
       <div className="min-h-screen bg-white text-gray-900">
-        <div className="container mx-auto px-8 py-12">
+        <div className="container mx-auto px-4 sm:px-8 py-8 sm:py-12">
           <div className="max-w-6xl mx-auto">
-            {/* Smaller Header */}
-            <div className="text-center mb-12">
-              <h1 className="font-hanson text-4xl md:text-5xl font-bold mb-4">
+            {/* Header */}
+            <div className="text-center mb-8 sm:mb-12">
+              <h1 className="font-hanson text-3xl md:text-5xl font-bold mb-4">
                 About
               </h1>
             </div>
 
             {/* Bio Section with Download Button */}
-            <div id="bio-section" ref={bioSectionRef} className="grid md:grid-cols-2 gap-12 items-center mb-20">
-              <div className="space-y-6">
-                <h2 className="font-hanson text-3xl font-bold">
+            <div id="bio-section" ref={bioSectionRef} className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-12 md:mb-20">
+              <div className="space-y-4 sm:space-y-6 order-2 md:order-1">
+                <h2 className="font-hanson text-2xl md:text-3xl font-bold">
                   Allen Li
                 </h2>
-                <p className="text-lg leading-relaxed text-gray-700">
+                <p className="text-base md:text-lg leading-relaxed text-gray-700">
                   Currently in: Austin, TX 
                 </p>
-                <p className="text-lg leading-relaxed text-gray-700">
+                <p className="text-base md:text-lg leading-relaxed text-gray-700">
                   Software Engineer at Dell Technologies. Passionate about building 
                   high quality and innovative solutions for problems that matter.
                 </p>
-                <p className="text-lg leading-relaxed text-gray-700">
+                <p className="text-base md:text-lg leading-relaxed text-gray-700">
                   I've been awarded multiple organizational accolades for my work in leadership and recruitment. I pride myself on 
                   versatility and adaptability, always eager to learn and grow in new environments.
                 </p>
-                <p className="text-lg leading-relaxed text-gray-700">
+                <p className="text-base md:text-lg leading-relaxed text-gray-700">
                   Recent Texas A&M graduate (Cum Laude) with a Computer Engineering degree and Mathematics 
                   Minor.
                 </p>
                 <a
                   href="/assets/Allen_Li_Resume.pdf"
                   download
-                  className="inline-flex items-center gap-2 bg-gray-900 text-white font-hanson font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300"
+                  className="inline-flex items-center gap-2 bg-gray-900 text-white font-hanson font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300 text-sm sm:text-base"
                 >
-                  <Download size={20} />
+                  <Download size={18} />
                   Download Resume
                 </a>
               </div>
               
-              <div className="bg-gray-100 aspect-square rounded-lg flex items-center justify-center overflow-hidden">
+              <div className="bg-gray-100 aspect-square rounded-lg flex items-center justify-center overflow-hidden w-full max-w-sm md:max-w-none mx-auto order-1 md:order-2">
                 <img
                   src="/assets/grad_pic.jpeg"
                   alt="Allen Li Graduation"
@@ -93,20 +93,20 @@ const About = () => {
 
             {/* Timeline Section */}
             <div id="timeline-section" ref={timelineSectionRef} className="relative">
-              <h2 className="font-hanson text-4xl font-bold text-center mb-16">Timeline</h2>
+              <h2 className="font-hanson text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-16">Timeline</h2>
               
               {/* Timeline Container */}
               <div className="relative">
-                {/* Center Line */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gray-300 h-full"></div>
+                {/* Center Line - Show on all screens */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-300 h-full"></div>
                 
                 {/* Timeline Items */}
-                <div className="space-y-12">
+                <div className="space-y-6 sm:space-y-12">
                   {Math.max(professionalEvents.length, personalEvents.length) > 0 && 
                     Array.from({ length: Math.max(professionalEvents.length, personalEvents.length) }).map((_, index) => (
-                      <div key={index} className="relative grid grid-cols-2 gap-8 items-center">
-                        {/* Professional Side (Left) */}
-                        <div className="text-right pr-8">
+                      <div key={index} className="relative grid grid-cols-2 gap-4 sm:gap-8">
+                        {/* Professional Side */}
+                        <div className="text-right pr-4 sm:pr-8">
                           {professionalEvents[index] && (
                             <TimelineTile
                               type="professional"
@@ -118,11 +118,11 @@ const About = () => {
                           )}
                         </div>
 
-                        {/* Center Dot */}
-                        <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gray-900 rounded-full border-4 border-white shadow-lg z-10"></div>
+                        {/* Center Dot - Show on all screens */}
+                        <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 sm:w-4 sm:h-4 bg-gray-900 rounded-full border-2 sm:border-4 border-white shadow-lg z-10"></div>
 
-                        {/* Personal Side (Right) */}
-                        <div className="text-left pl-8">
+                        {/* Personal Side */}
+                        <div className="text-left pl-4 sm:pl-8">
                           {personalEvents[index] && (
                             <TimelineTile
                               type="personal"
