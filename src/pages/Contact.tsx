@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Layout from "../components/Layout";
-import { Instagram, Linkedin, Send } from "lucide-react";
+import { Instagram, Linkedin, Send, Github } from "lucide-react";
 import emailjs from "@emailjs/browser";
 
 const Contact = () => {
@@ -104,6 +104,14 @@ const Contact = () => {
                         className="text-gray-700 hover:text-gray-900 transition-colors p-2 hover:bg-gray-100 rounded-full"
                       >
                         <Linkedin size={28} />
+                      </a>
+                      <a
+                        href="https://github.com/allenallen512"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-700 hover:text-gray-900 transition-colors p-2 hover:bg-gray-100 rounded-full"
+                      >
+                        <Github size={28} />
                       </a>
                     </div>
                   </div>

@@ -1,5 +1,5 @@
 
-import { Instagram, Linkedin } from "lucide-react";
+import { Github, Instagram, Linkedin } from "lucide-react";
 import Layout from "../components/Layout";
 import HeroSection from "../components/HeroSection";
 
@@ -27,6 +27,14 @@ const Index = () => {
             className="text-white/80 hover:text-white transition-colors duration-300"
           >
             <Linkedin size={24} />
+          </a>
+          <a
+            href="https://github.com/allenallen512"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/80 hover:text-white transition-colors duration-300"
+          >
+            <Github size={24} />
           </a>
         </div>
       </div>
