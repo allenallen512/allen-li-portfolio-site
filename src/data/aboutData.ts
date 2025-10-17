@@ -1,7 +1,13 @@
 
 export const professionalEvents = [
-  {
+    {
     year: "Currently",
+    title: "Solutions Engineer",
+    company: "Hover",
+    description: "Client integrations and more..."
+  },
+  {
+    year: "2025",
     title: "Software Engineer",
     company: "Dell Technologies",
     description: "Working on Supply Chain Modernization initiatives"

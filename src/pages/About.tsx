@@ -58,10 +58,10 @@ const About = () => {
                   Allen Li
                 </h2>
                 <p className="text-base md:text-lg leading-relaxed text-gray-700">
-                  Currently in: Austin, TX 
+                  Currently in: New York City, NY 
                 </p>
                 <p className="text-base md:text-lg leading-relaxed text-gray-700">
-                  Software Engineer at Dell Technologies. Passionate about building 
+                  Solutions Engineer at Hover. Passionate about building 
                   high quality and innovative solutions for problems that matter.
                 </p>
                 <p className="text-base md:text-lg leading-relaxed text-gray-700">

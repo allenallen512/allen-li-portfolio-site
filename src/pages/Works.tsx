@@ -8,10 +8,11 @@ const Works = () => {
   const caseStudies = [
     {
       id: 1,
-      title: "Chasers",
+      title: "Chaser",
       description: "App designed to rewards users for being present in their local communities.",
       image: "/images/chaser/chaser_logo.png",
-      tags: ["In-Progress", "UI/UX Design", "GTM", "Mobile Development"]
+      tags: ["In-Progress", "UI/UX Design", "GTM", "Mobile Development"],
+      link: "https://getchaser.app" // Add link property for Chaser
     },
     {
       id: 2,
@@ -76,6 +77,7 @@ const Works = () => {
                     description={study.description}
                     tags={study.tags}
                     size="large"
+                    link={study.link} // Pass link prop to WorkCard
                   />
                 ))}
                 {/* Peek element only on desktop */}
