@@ -45,8 +45,12 @@ export const professionalEvents = [
 ];
 
 export const personalEvents = [
+    {year: "November 2025",
+    title: "Moved to NYC",
+    description: "Relocated to New York City to pursue new opportunities and experiences"
+  },
   {year: "Febuary 2025",
-    title: "started building chaser",
+    title: "Started building chaser",
     description: "started building chaser - the going out app"
   },
   {
