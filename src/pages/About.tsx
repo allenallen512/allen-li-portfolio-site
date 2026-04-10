@@ -1,26 +1,26 @@
 import { useEffect, useRef, useState } from "react";
 import Layout from "../components/Layout";
 import TimelineTile from "../components/TimelineTile";
-import { Download } from "lucide-react";
+import { Download, Github } from "lucide-react";
 import { professionalEvents, personalEvents } from "../data/aboutData";
 
 const About = () => {
   const bioSectionRef = useRef<HTMLDivElement>(null);
   const timelineSectionRef = useRef<HTMLDivElement>(null);
   const [currentSection, setCurrentSection] = useState<'bio' | 'timeline'>('bio');
-  
+
   useEffect(() => {
     const bioSection = bioSectionRef.current;
     const timelineSection = timelineSectionRef.current;
     let scrollTimeout: NodeJS.Timeout;
-    
+
     const handleScroll = () => {
       clearTimeout(scrollTimeout);
-      
+
       scrollTimeout = setTimeout(() => {
         const scrollPosition = window.scrollY;
         const windowHeight = window.innerHeight;
-        
+
         if (scrollPosition > windowHeight * 0.3 && currentSection === 'bio') {
           timelineSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
           setCurrentSection('timeline');
@@ -32,7 +32,7 @@ const About = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       clearTimeout(scrollTimeout);
@@ -58,30 +58,42 @@ const About = () => {
                   Allen Li
                 </h2>
                 <p className="text-base md:text-lg leading-relaxed text-gray-700">
-                  Currently in: New York City, NY 
+                  Currently in: New York City, NY
                 </p>
                 <p className="text-base md:text-lg leading-relaxed text-gray-700">
-                  Solutions Engineer at Hover. Passionate about building 
+                  Solutions Engineer at Hover. Passionate about building
                   high quality and innovative solutions for problems that matter.
                 </p>
                 <p className="text-base md:text-lg leading-relaxed text-gray-700">
-                  I've been awarded multiple organizational accolades for my work in leadership and recruitment. I pride myself on 
+                  I've been awarded multiple organizational accolades for my work in leadership and recruitment. I pride myself on
                   versatility and adaptability, always eager to learn and grow in new environments.
                 </p>
                 <p className="text-base md:text-lg leading-relaxed text-gray-700">
-                  Recent Texas A&M graduate (Cum Laude) with a Computer Engineering degree and Mathematics 
+                  Recent Texas A&M graduate (Cum Laude) with a Computer Engineering degree and Mathematics
                   Minor.
                 </p>
-                <a
-                  href="/assets/Allen_Li_Resume.pdf"
-                  download
-                  className="inline-flex items-center gap-2 bg-gray-900 text-white font-hanson font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  <Download size={18} />
-                  Download Resume
-                </a>
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href="/assets/Allen_Li_Resume.pdf"
+                    download
+                    className="inline-flex items-center gap-2 bg-gray-900 text-white font-hanson font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300 text-sm sm:text-base"
+                  >
+                    <Download size={18} />
+                    Download Resume
+                  </a>
+
+                  <a
+                    href="https://github.com/allenallen512"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 bg-gray-900 text-white font-hanson font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300 text-sm sm:text-base"
+                  >
+                    <Github size={18} />
+                    GitHub
+                  </a>
+                </div>
               </div>
-              
+
               <div className="bg-gray-100 aspect-square rounded-lg flex items-center justify-center overflow-hidden w-full max-w-sm md:max-w-none mx-auto order-1 md:order-2">
                 <img
                   src="/assets/grad_pic.jpeg"
@@ -94,15 +106,15 @@ const About = () => {
             {/* Timeline Section */}
             <div id="timeline-section" ref={timelineSectionRef} className="relative">
               <h2 className="font-hanson text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-16">Timeline</h2>
-              
+
               {/* Timeline Container */}
               <div className="relative">
                 {/* Center Line - Show on all screens */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-300 h-full"></div>
-                
+
                 {/* Timeline Items */}
                 <div className="space-y-6 sm:space-y-12">
-                  {Math.max(professionalEvents.length, personalEvents.length) > 0 && 
+                  {Math.max(professionalEvents.length, personalEvents.length) > 0 &&
                     Array.from({ length: Math.max(professionalEvents.length, personalEvents.length) }).map((_, index) => (
                       <div key={index} className="relative grid grid-cols-2 gap-4 sm:gap-8">
                         {/* Professional Side */}

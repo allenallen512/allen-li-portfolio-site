@@ -51,7 +51,7 @@ export const personalEvents = [
   },
   {year: "Febuary 2025",
     title: "Started building chaser",
-    description: "started building chaser - the going out app"
+    description: "started building chaser - a nightlife loyalty program"
   },
   {
     year: "2025",
