@@ -9,7 +9,7 @@ import About from "./pages/About";
 import Works from "./pages/Works";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +18,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <Analytics/>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
