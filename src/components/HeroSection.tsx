@@ -3,18 +3,16 @@ import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
 
 const HeroSection = () => {
   const carouselItems = [
-    "software developer",
-    "gym rat",
-    "product designer",
-    "traveler",
-    "water polo player",
-    "Aggie",
-    "product manager",
-    "reader",
-    "music enjoyer",
-    "runner",
-
-
+    "SOFTWARE DEVELOPER",
+    "GYM RAT",
+    "PRODUCT DESIGNER",
+    "TRAVELER",
+    "WATER POLO PLAYER",
+    "AGGIE",
+    "PRODUCT MANAGER",
+    "READER",
+    "MUSIC ENJOYER",
+    "RUNNER",
   ];
 
   return (
@@ -38,7 +36,7 @@ const HeroSection = () => {
             LI
           </h1>
           <p className="font-hanson text-lg md:text-xl text-white/90 mt-8 tracking-wide">
-            austin, tx
+            austin, tx | new york, ny 
           </p>
         </div>
 

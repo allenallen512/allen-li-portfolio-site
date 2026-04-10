@@ -87,7 +87,7 @@ const Works = () => {
 
             {/* Scroll indicator - only show on desktop */}
             <p className="hidden md:block font-hanson text-sm text-gray-500 mt-4 tracking-wide">
-              ← Scroll horizontally to see more projects
+              ← Scroll to see more projects
             </p>
           </div>
         </div>

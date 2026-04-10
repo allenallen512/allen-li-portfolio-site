@@ -23,7 +23,7 @@ const Navigation = () => {
           {/* Left: Logo Image */}
           <div className="pl-4 md:pl-8 flex items-center gap-4">
             <img
-              src={isHomePage ? "/assets/inverted-logo.png" : "/assets/personal-logo.png"}
+              src={isHomePage ? "/assets/personal-logo.png" : "/assets/personal-logo.png"}
               alt="Allen Li Logo"
               className="h-20 w-20 md:h-28 md:w-28 object-contain"
             />
