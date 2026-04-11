@@ -5,51 +5,67 @@ interface WorkCardProps {
   title: string;
   description: string;
   tags: string[];
-  link?: string;
-  size?: 'small' | 'large';
+  onLinkPress?: string;
 }
 
-const WorkCard = ({ image, title, description, tags, link, size = 'small' }: WorkCardProps) => {
-  const cardWidth = size === 'large' ? 'w-full md:w-[30vw]' : 'w-full md:w-80';
-  const titleSize = size === 'large' ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl';
-  const descriptionSize = size === 'large' ? 'text-lg md:text-xl' : 'text-base md:text-lg';
-
-  // Helper to wrap content in a link if provided
-  const LinkWrapper = ({ children }: { children: React.ReactNode }) =>
-    link ? (
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:opacity-80 transition-opacity"
-      >
-        {children}
-      </a>
-    ) : (
-      <>{children}</>
-    );
-
+const WorkCard = ({ image, title, description, tags, onLinkPress }: WorkCardProps) => {
   return (
-    <div className={`flex-shrink-0 ${cardWidth} group`}>
-      <LinkWrapper>
-        <div className="rounded-lg overflow-hidden mb-6 aspect-video cursor-pointer">
-          <img 
-            src={image} 
-            alt={title}
-            className="w-full h-full max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
-          />
-        </div>
-      </LinkWrapper>
-      <div className="space-y-4">
-        <LinkWrapper>
-          <h2 className={`font-hanson ${titleSize} font-bold text-gray-900 tracking-wide cursor-pointer`}>
-            {title}
-          </h2>
-        </LinkWrapper>
-        <p className={`font-hanson ${descriptionSize} text-gray-600 tracking-wide`}>
+    <div
+      className="flex flex-col w-full h-full"
+      style={{
+        background: "rgba(255, 255, 255, 0.06)",
+        border: "1px solid rgba(255, 255, 255, 0.11)",
+        borderRadius: "20px",
+        backdropFilter: "blur(16px)",
+        WebkitBackdropFilter: "blur(16px)",
+        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4)",
+        overflow: "hidden",
+      }}
+    >
+      {/* Image */}
+      <div
+        className="overflow-hidden flex-shrink-0"
+        style={{
+          height: "160px",
+          background: "rgba(255,255,255,0.04)",
+          borderBottom: "1px solid rgba(255,255,255,0.07)",
+        }}
+      >
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-contain"
+        />
+      </div>
+
+      {/* Content */}
+      <div className="p-4 flex flex-col flex-1 gap-2">
+        <h2 className="font-hanson text-base font-bold text-white tracking-wide leading-tight">
+          {title}
+        </h2>
+        <p
+          className="font-hanson text-xs tracking-wide leading-relaxed flex-1"
+          style={{ color: "rgba(255,255,255,0.5)" }}
+        >
           {description}
         </p>
-        <ProjectTags tags={tags} />
+        <div className="pt-1">
+          <ProjectTags tags={tags.slice(0, 2)} />
+        </div>
+        {onLinkPress && (
+          <button
+            onClick={() => window.open(onLinkPress, "_blank", "noopener,noreferrer")}
+            className="mt-3 w-full font-hanson text-xs tracking-widest py-2.5 px-4 rounded-xl transition-all duration-300 ease-out hover:bg-white hover:text-black hover:scale-105"
+            style={{
+              background: "rgba(255,255,255,0.08)",
+              border: "1px solid rgba(255,255,255,0.22)",
+              color: "white",
+              cursor: "pointer",
+            }}
+          >
+            View  →
+          </button>
+        )}
       </div>
     </div>
   );

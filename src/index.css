@@ -107,3 +107,21 @@
   font-style: normal;
   font-display: swap;
 }
+
+@keyframes shimmer-twinkle {
+  0%, 100% { opacity: 0; }
+  50% { opacity: var(--max-opacity, 0.25); }
+}
+
+.shimmer-particle {
+  animation: shimmer-twinkle var(--duration, 3s) ease-in-out var(--delay, 0s) infinite;
+}
+
+/* Hide scrollbar for horizontal scroll containers */
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}

@@ -7,9 +7,14 @@ const ProjectTags = ({ tags }: ProjectTagsProps) => {
   return (
     <div className="flex flex-wrap gap-2">
       {tags.map((tag, index) => (
-        <span 
+        <span
           key={index}
-          className="font-hanson text-sm bg-gray-200 text-gray-700 px-3 py-1 rounded-full tracking-wide"
+          className="font-hanson text-xs px-3 py-1 rounded-full tracking-wide"
+          style={{
+            background: "rgba(255,255,255,0.08)",
+            border: "1px solid rgba(255,255,255,0.12)",
+            color: "rgba(255,255,255,0.6)",
+          }}
         >
           {tag}
         </span>
